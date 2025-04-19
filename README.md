@@ -37,6 +37,9 @@ O sistema implementado permite:
 
 ```bash
 pip install pycryptodome
+
+```
+
 🖼️ Exemplo de Execução
 📷 Imagem da execução do programa: ![image](https://github.com/user-attachments/assets/5c9103a3-00b0-475c-9850-c885aefaa213)
 
