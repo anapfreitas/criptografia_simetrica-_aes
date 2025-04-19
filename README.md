@@ -43,13 +43,25 @@ pip install pycryptodome
 🖼️ Exemplo de Execução
 📷 Imagem da execução do programa: ![image](https://github.com/user-attachments/assets/5c9103a3-00b0-475c-9850-c885aefaa213)
 
-🧠 Explicação Técnica do Código
-A chave é gerada aleatoriamente com get_random_bytes(16).
-A mensagem é transformada em bytes com .encode().
-Usamos pad() para ajustar a mensagem ao tamanho dos blocos do AES.
-O AES é executado no modo CBC e o IV é salvo junto com a mensagem cifrada.
-O conteúdo é codificado em Base64 para facilitar o envio/armazenamento.
-Para decifrar, usamos b64decode(), separamos IV + mensagem e usamos unpad() após decifrar.
+## 🧠 Explicação Técnica do Código
+
+| Etapa                                     | Explicação                                                                                  |
+|-------------------------------------------|----------------------------------------------------------------------------------------------|
+| `get_random_bytes(16)`                    | Gera uma chave AES aleatória de 128 bits (16 bytes).                                        |
+| `.encode()`                               | Converte a mensagem de texto para bytes, pois o AES só aceita dados binários.              |
+| `pad(..., AES.block_size)`                | Adiciona preenchimento à mensagem para que ela tenha tamanho múltiplo de 16 bytes.         |
+| `AES.new(chave, AES.MODE_CBC)`           | Cria o objeto de cifragem no modo CBC, utilizando a chave gerada.                          |
+| `cipher.encrypt(...)`                     | Cifra a mensagem em blocos encadeados usando a chave e o IV.                               |
+| `iv + mensagem_cifrada`                   | Junta o vetor de inicialização (IV) com a mensagem cifrada.                                |
+| `base64.b64encode(...)`                   | Codifica a mensagem cifrada em Base64 para facilitar envio, armazenamento ou visualização. |
+| `base64.b64decode(...)`                   | Decodifica a mensagem Base64 de volta para bytes (para decifrar).                          |
+| `dados[:16]`                              | Recupera os primeiros 16 bytes do IV.                                                      |
+| `dados[16:]`                              | Recupera o restante da mensagem cifrada.                                                   |
+| `AES.new(chave, AES.MODE_CBC, iv=...)`   | Cria o objeto de decifragem AES com o mesmo IV usado na cifragem.                          |
+| `cipher.decrypt(...)`                     | Decifra os dados de volta para a versão original com padding.                              |
+| `unpad(..., AES.block_size)`              | Remove o padding adicionado durante a cifragem.                                             |
+| `.decode()`                               | Converte os bytes decifrados de volta para string legível.                                 |
+
 
 👩‍💻 Autora
 Ana Paula Santos de Freitas
