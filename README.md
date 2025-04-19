@@ -45,15 +45,10 @@ pip install pycryptodome
 
 🧠 Explicação Técnica do Código
 A chave é gerada aleatoriamente com get_random_bytes(16).
-
 A mensagem é transformada em bytes com .encode().
-
 Usamos pad() para ajustar a mensagem ao tamanho dos blocos do AES.
-
 O AES é executado no modo CBC e o IV é salvo junto com a mensagem cifrada.
-
 O conteúdo é codificado em Base64 para facilitar o envio/armazenamento.
-
 Para decifrar, usamos b64decode(), separamos IV + mensagem e usamos unpad() após decifrar.
 
 👩‍💻 Autora
@@ -61,5 +56,6 @@ Ana Paula Santos de Freitas
 Curso: Análise e Desenvolvimento de Sistemas
 Disciplina: Segurança da Informação
 Instituto Federal do Triângulo Mineiro – Campus Patrocínio.
+
 📜 Licença
 Este projeto é de uso acadêmico e didático.
