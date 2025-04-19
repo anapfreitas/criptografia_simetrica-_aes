@@ -65,8 +65,11 @@ pip install pycryptodome
 
 👩‍💻 Autora
 Ana Paula Santos de Freitas
+
 Curso: Análise e Desenvolvimento de Sistemas
+
 Disciplina: Segurança da Informação
+
 Instituto Federal do Triângulo Mineiro – Campus Patrocínio.
 
 📜 Licença
